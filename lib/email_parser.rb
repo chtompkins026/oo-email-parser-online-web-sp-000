@@ -13,8 +13,8 @@ class EmailParser
   end 
   
   def parse(csv_emails)
-    @csv_emails.each do |email| 
-      email.split(' ').map 
+    reg = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i
+    csv_emails.scan(reg).uniq
   end 
 
 end 
